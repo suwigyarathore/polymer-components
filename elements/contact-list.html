@@ -1,0 +1,73 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="contact-list">
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 40px ;
+            padding-top: 20px;
+        }
+
+        li img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        li + li {
+            border-top: 1px solid #666666;
+        }
+
+        h3 {
+            margin : 0 40px 0 0;
+            line-height: 80px;
+        }
+
+        span {
+            line-height: 80px;
+        }
+    </style>
+    <template>
+        <ul>
+            <li>
+                <img src="https://randomuser.me/portraits/thumb/men/10.jpg">
+                <h3>Scott</h3>
+                <span>scott.rathore.ui@gmail.com</span>
+            </li>
+            <li>
+                <img src="https://randomuser.me/portraits/thumb/men/5.jpg">
+                <h3>Tim</h3>
+                <span>tim.rathore.ui@gmail.com</span>
+            </li>
+            <li>
+                <img src="https://randomuser.me/portraits/thumb/men/7.jpg">
+                <h3>Ben</h3>
+                <span>ben.rathore.ui@gmail.com</span>
+            </li>
+        </ul>
+    </template>
+</dom-module>
+
+<script >
+  Polymer({
+    is: "contact-list",
+    properties : {
+      firstName: String,
+      lastName: {
+        type: String,
+        value: "Rathore"
+      },
+      fullName: {
+        type: String,
+        computed: "computeFullName(firstName, lastName)"
+      }
+    },
+
+    computeFullName: function(firstName, lastName) {
+      return firstName + ' ' + lastName;
+    }
+  });
+</script>

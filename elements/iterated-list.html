@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="i-list">
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        li {
+            display: flex;
+            margin-bottom: 40px ;
+            padding-top: 20px;
+        }
+
+        li img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        li + li {
+            border-top: 1px solid #666666;
+        }
+
+        h3 {
+            margin : 0 40px 0 0;
+            line-height: 80px;
+        }
+
+        span {
+            line-height: 80px;
+        }
+    </style>
+    <template>
+        <ul>
+            <template is="dom-repeat" items="{{contacts}}">
+                <li>
+                    <img src="{{item.img}}">
+                    <h3>{{item.name}}</h3>
+                    <span>{{item.email}}</span>
+                </li>
+            </template>
+        </ul>
+    </template>
+</dom-module>
+
+<script >
+  Polymer({
+    is: "i-list",
+    ready: function () {
+      this.contacts = [
+        {
+          name: "Scott",
+          email: "scott@gmail.com",
+          img: "https://randomuser.me/portraits/thumb/men/10.jpg"
+        },
+        {
+          name: "Tim",
+          email: "tim@gmail.com",
+          img: "https://randomuser.me/portraits/thumb/men/7.jpg"
+        },
+        {
+          name: "Ben",
+          email: "ben@gmail.com",
+          img: "https://randomuser.me/portraits/thumb/men/5.jpg"
+        }
+      ]
+    }
+  });
+</script>
